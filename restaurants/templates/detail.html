@@ -15,7 +15,12 @@
     <p class="card-text">{{restaurant.description|linebreaks}}</p>
     <p class="card-text">Opening Time: {{restaurant.opening_time}}</p>
     <p class="card-text">Closing Time: {{restaurant.closing_time}}</p>
+
+
     <div class="row text-center">
+        <div class="col-md-6">
+            <a href="{% url 'item-create' restaurant.id %}" class="btn btn-outline-primary btn-block">Create Item</a>
+        </div>
         <div class="col-md-6">
             <a href="{% url 'restaurant-update' restaurant.id %}" class="btn btn-outline-primary btn-block">Update</a>
         </div>
@@ -25,4 +30,16 @@
     </div>
   </div>
 </div>
+
+
+    {% for items in restaurant.item_set.all %}
+
+     {{item.name}}
+     {{item.desctiption}}
+     {{item.price}}
+
+      
+    {% endfor %}
+
+    
 {% endblock content %}
